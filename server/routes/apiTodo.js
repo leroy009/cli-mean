@@ -9,9 +9,9 @@ var mongojs = require('mongojs')
 var db = mongojs('mongodb://localhost:27017/todos', ['todos'])
 
 //Get API listing.
-router.get('/', function (req,res) {
-  res.send('api works');
-})
+// router.get('/', function (req,res) {
+//   res.send('api works');
+// })
 
 //Get all Todos inside MongoDB
 router.get('/todos',function (req,res,next) {

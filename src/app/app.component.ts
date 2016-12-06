@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+// import {http_Poviders} from '@angular/http'
 
 @Component({
   selector: 'app-root',
