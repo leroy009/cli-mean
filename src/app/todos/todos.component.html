@@ -18,9 +18,10 @@
     </div>
     <div class="col-md-6">
       <span [class.hidden]="todo.isEditMode">{{todo.text}}</span>
-      <input type="text" [class.hidden]="todo.isEditMode" [value]="todo.text" (keypress)="updateTodoText($event, todo)"  class="form-control">
-      <input type="button" [class.hidden]="todo.isEditMode" value="Cancel" (click)="setEditState(todo, flase)" class="btn btn-warning form form-control">
+      <input type="text" [class.hidden]="!todo.isEditMode" [value]="todo.text" (keypress)="updateTodoText($event, todo)"  class="form-control">
+      <input type="button" [class.hidden]="!todo.isEditMode" value="Cancel" (click)="setEditState(todo, false)" class="btn btn-warning form form-control">
     </div>
+
     <div class="col-md-4 btns">
       <input type="button" class="btn btn-danger pull-right" value="Delete">
       <input type="button" class="btn btn-default pull-right" value="Edit" [class.disabled]="todo.IsCompleted" (click)="setEditState(todo,true)">
@@ -28,5 +29,4 @@
     <hr>
     <br><br><br><br>
   </div>
-
 </div>

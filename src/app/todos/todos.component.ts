@@ -61,19 +61,20 @@ todos: Todo[];
 
   //  Update Todo
   updateTodoText($event, todo){
-    if($event === 13){
+    if($event.which === 13){
       todo.text = $event.target.value;
       var _todo = {
         _id: todo._id,
         text: todo.text,
-        IsCompleted : todo.IsCompleted
+        isCompleted: todo.isCompleted
       };
 
-      this.todoService.updateTodo(todo)
-        .map(res=> res.json())
-        .subscribe( data => {
+      this.todoService.updateTodo(_todo)
+        .map(res => res.json())
+        .subscribe(data => {
           this.setEditState(todo, false);
-        })
+        });
     }
   }
+
 }
