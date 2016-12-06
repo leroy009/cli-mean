@@ -23,8 +23,9 @@
     </div>
 
     <div class="col-md-4 btns">
-      <input type="button" class="btn btn-danger pull-right" value="Delete">
-      <input type="button" class="btn btn-default pull-right" value="Edit" [class.disabled]="todo.IsCompleted" (click)="setEditState(todo,true)">
+      <input type="button" class="btn btn-danger pull-right" value="Delete" (click)="deleteTodo(todo)">
+      <input type="button" class="btn btn-default pull-right" value="Edit" [class.disabled]="todo.IsCompleted" [class.hidden]="todo.IsCompleted" (click)="setEditState(todo,true)">
+      <!--<input type="button" class="btn btn-default pull-right" value="Edit" [class.disabled]="todo.IsCompleted" (click)="setEditState(todo,true)">-->
     </div>
     <hr>
     <br><br><br><br>

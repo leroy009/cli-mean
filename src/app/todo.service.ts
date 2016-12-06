@@ -31,5 +31,9 @@ export class TodoService {
     return this.http.put('/api/v1/todos/'+todo._id, JSON.stringify(todo),{headers: hearders});
   }
 
+//  Delete Todo
+  deleteTodo(id){
+    return this.http.delete('/api/v1/todos/'+id);
+  }
 
 }

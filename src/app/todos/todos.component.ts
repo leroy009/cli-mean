@@ -10,7 +10,7 @@ import any = jasmine.any;
   styleUrls: ['./todos.component.css']
 })
 export class TodosComponent implements OnInit {
-todos: Todo[];
+todos: any[];
   constructor(private todoService: TodoService) { }
 
   ngOnInit() {
@@ -75,6 +75,22 @@ todos: Todo[];
           this.setEditState(todo, false);
         });
     }
+  }
+
+//  Delete Todo
+  deleteTodo(todo){
+    var todos = this.todos;
+    this.todoService.deleteTodo(todo._id)
+      .map(res =>res.json())
+      .subscribe(data =>{
+        if(data.n == 1){
+          for(var i = 0; i < todos.length; i++){
+            if(todos[i]._id == todo._id){
+              todos.splice(i,1);
+            }
+          }
+        }
+      });
   }
 
 }
